@@ -4,6 +4,8 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const tsImportPluginFactory = require('ts-import-plugin');
+const { CheckerPlugin } = require('awesome-typescript-loader');
 
 process.noDeprecation = true;
 
@@ -24,8 +26,17 @@ module.exports = (options) => ({
         test: /\.tsx$/, // Transform all .tsx files required somewhere with Babel
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-          options: options.babelQuery
+          loader: 'awesome-typescript-loader',
+          options: {
+            ...options.babelQuery,
+            getCustomTransformers: () => ({
+              before: [tsImportPluginFactory({
+                libraryName: 'antd',
+                libraryDirectory: 'lib',
+                style: true
+              })]
+            }),
+          },
         }
       },
       {
@@ -72,7 +83,8 @@ module.exports = (options) => ({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
-    })
+    }),
+    new CheckerPlugin()
   ]),
   resolve: {
     modules: ['src', 'node_modules'],
