@@ -17,7 +17,7 @@ import { authReducer, authSagas } from './auth/index';
 
 export const history = createBrowserHistory();
 
-const metaReducers: Reducer<any, AnyAction> = combineReducers({
+const metaReducers: Reducer<any, any> = combineReducers({
   auth: authReducer,
   router: connectRouter(history),
   sidenav: sidenavReducer,
