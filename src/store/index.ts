@@ -5,14 +5,13 @@ import {
   Reducer,
   AnyAction,
 } from 'redux';
-import createSagaMiddleware from 'redux-saga';
-import { all } from '@redux-saga/core/effects';
+
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 
-// Reducers & Sagas
+// Reducers
 import { sidenavReducer } from './sidenav/reducer';
-import { authReducer, authSagas } from './auth/index';
+import { authReducer} from './auth/index';
 
 
 export const history = createBrowserHistory();
@@ -24,20 +23,10 @@ const metaReducers: Reducer<any, AnyAction> = combineReducers({
 
 });
 
-// Saga
-function* rootSaga() {
-  yield all([
-    ...authSagas,
-  ]);
-}
-
-const sagaMiddleware = createSagaMiddleware();
 
 // Middlewares
-const middlewares: any = [sagaMiddleware, routerMiddleware(history)];
+const middlewares: any = [routerMiddleware(history)];
 
 const store = createStore(metaReducers, applyMiddleware(...middlewares));
-
-sagaMiddleware.run(rootSaga);
 
 export default store;
