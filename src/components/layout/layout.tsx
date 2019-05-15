@@ -84,8 +84,7 @@ class Layout extends Component<any, any> {
                     >
                       <span className={`ic-bars ${classes.menuIcon}`} />
                     </IconButton>
-                    <img className={classes.logo} src="/images/scala-pro.svg" />
-                    <Link to="/profile">
+                    <Link to="/home">
                       <img className={classes.avatar} src={avatar} />
                     </Link>
                   </Toolbar>
