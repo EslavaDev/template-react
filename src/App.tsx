@@ -6,26 +6,18 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import store, { history } from './store';
+import { Layout } from './components/layout';
 import { theme } from './config/theme';
 
-export default class App extends Component {
-  render() {
-    return (
-      <MuiThemeProvider theme={theme}>
-        <CssBaseline />
-        <Provider store={store}>
-          <ConnectedRouter history={history}>
-            <div className="container">
-              <h1 className="title">React Starters</h1>
-              <Button disableRipple variant="outlined" color="primary">
-                <Typography autoCapitalize="true" variant="inherit">
-                  Superame esta bebe
-                </Typography>
-              </Button>
-            </div>
-          </ConnectedRouter>
-        </Provider>
-      </MuiThemeProvider>
-    );
-  }
-}
+export const App = () => {
+  return (
+    <MuiThemeProvider theme={theme}>
+      <CssBaseline />
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <Layout />
+        </ConnectedRouter>
+      </Provider>
+    </MuiThemeProvider>
+  );
+};
