@@ -11,7 +11,9 @@ const token = localStorage.getItem('spa') || '';
 
 const initialState: AuthDataState = {
   token,
-  isAuthenticated: !!token || false,
+  // isAuthenticated: !!token || false,
+  isAuthenticated: true,
+
   loading: false,
   error: '',
 };
@@ -27,7 +29,7 @@ export default function authenticationReducer(
     case AuthActionsType.LOGIN_SUCCESS: {
       return { ...state, loading: false, isAuthenticated: true };
     }
-    
+
     case AuthActionsType.AUTH_ERROR: {
       return {
         ...state,

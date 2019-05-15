@@ -54,12 +54,12 @@ module.exports = (options) => ({
               importLoaders: 1,
             },
           },
-          AntdScssThemePlugin.themify({
+          {
             loader: 'sass-loader',
             options: {
               sourceMap: process.env.NODE_ENV !== 'production',
             },
-          }),
+          },
         ],
       },
       {
@@ -74,12 +74,12 @@ module.exports = (options) => ({
               importLoaders: 1,
             },
           },
-          AntdScssThemePlugin.themify({
+          {
             loader: 'less-loader',
             options: {
               sourceMap: process.env.NODE_ENV !== 'production',
             },
-          }),
+          },
         ],
       },
       {
@@ -121,9 +121,9 @@ module.exports = (options) => ({
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
-    new AntdScssThemePlugin(
-      path.join(__dirname, 'src', 'assets', 'styles', 'theme.scss'),
-    ),
+    // new AntdScssThemePlugin(
+    //   path.join(__dirname, 'src', 'assets', 'styles', 'theme.scss'),
+    // ),
     new CheckerPlugin(),
   ]),
   resolve: {
