@@ -24,21 +24,21 @@ module.exports = (options) => ({
   module: {
     rules: [
       {
-        test: /\.tsx$/, // Transform all .tsx files required somewhere with Babel
+        test: /\.(ts|tsx)$/, // Transform all .tsx files required somewhere with Babel
         exclude: /node_modules/,
         use: {
           loader: 'awesome-typescript-loader',
           options: {
             ...options.babelQuery,
-            getCustomTransformers: () => ({
-              before: [
-                tsImportPluginFactory({
-                  libraryName: 'antd',
-                  libraryDirectory: 'lib',
-                  style: true,
-                }),
-              ],
-            }),
+            // getCustomTransformers: () => ({
+            //   before: [
+            //     tsImportPluginFactory({
+            //       libraryName: 'antd',
+            //       libraryDirectory: 'lib',
+            //       style: true,
+            //     }),
+            //   ],
+            // }),
           },
         },
       },
@@ -48,9 +48,18 @@ module.exports = (options) => ({
         exclude: /node_modules/,
         use: [
           { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'less-loader' },
-          { loader: 'sass-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          },
+          AntdScssThemePlugin.themify({
+            loader: 'sass-loader',
+            options: {
+              sourceMap: process.env.NODE_ENV !== 'production',
+            },
+          }),
         ],
       },
       {
@@ -65,8 +74,12 @@ module.exports = (options) => ({
               importLoaders: 1,
             },
           },
-          { loader: 'less-loader' },
-          { loader: 'sass-loader' },
+          AntdScssThemePlugin.themify({
+            loader: 'less-loader',
+            options: {
+              sourceMap: process.env.NODE_ENV !== 'production',
+            },
+          }),
         ],
       },
       {
@@ -108,9 +121,9 @@ module.exports = (options) => ({
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
-    // new AntdScssThemePlugin(
-    //   path.join(__dirname, 'src', 'assets', 'styles', '_theme.scss'),
-    // ),
+    new AntdScssThemePlugin(
+      path.join(__dirname, 'src', 'assets', 'styles', 'theme.scss'),
+    ),
     new CheckerPlugin(),
   ]),
   resolve: {
