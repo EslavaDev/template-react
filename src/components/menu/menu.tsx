@@ -149,6 +149,7 @@ class Menu extends PureComponent<any, any> {
         </Hidden>
         <Hidden xsDown>
           <Drawer
+            transitionDuration={600}
             anchor={theme.direction === 'rtl' ? 'right' : 'left'}
             onClose={() => dispatch(ToggleDrawer())}
             classes={{ paper: classes.drawerPaper }}

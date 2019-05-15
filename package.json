@@ -14,6 +14,8 @@
     "start": "cross-env NODE_ENV=development node server",
     "start:prod": "cross-env NODE_ENV=production node server",
     "start:production": "npm run test && npm run build && npm run start:prod",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate",
     "test": "echo \"No tests available\"; exit 0"
   },
   "repository": {
@@ -55,6 +57,7 @@
     "@types/recompose": "^0.30.5",
     "@types/redux": "^3.6.0",
     "add-asset-html-webpack-plugin": "3.0.1",
+    "all-contributors-cli": "^6.4.0",
     "antd-scss-theme-plugin": "^1.0.7",
     "awesome-typescript-loader": "^5.2.1",
     "babel-core": "7.0.0-bridge.0",

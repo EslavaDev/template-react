@@ -6,6 +6,11 @@ export const styles = (theme: any) => ({
     marginRight: 0,
     marginLeft: '-0.75rem',
   },
+  menuIconFather: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   menuIcon: {
     color: 'black',
   },
@@ -13,8 +18,8 @@ export const styles = (theme: any) => ({
   toolbarFake: theme.mixins.toolbar,
   toolbar: {
     justifyContent: 'space-between',
-    paddingLeft: 240 + 24,
-    backgroundColor: 'grey',
+    paddingLeft: 24,
+    backgroundColor: 'white',
 
     [theme.breakpoints.down('xs')]: {
       paddingLeft: 24,
@@ -24,7 +29,7 @@ export const styles = (theme: any) => ({
   toolbarFake2: {
     justifyContent: 'space-between',
     paddingLeft: 24,
-    backgroundColor: 'grey',
+    backgroundColor: 'white',
 
     [theme.breakpoints.down('xs')]: {
       paddingLeft: 24,
@@ -43,7 +48,7 @@ export const styles = (theme: any) => ({
   content: {
     flexGrow: 1,
     padding: 0,
-    backgroundColor: 'grey',
+    backgroundColor: '#FAFAFA',
     minHeight: '100vh',
   },
   paddingZero: {

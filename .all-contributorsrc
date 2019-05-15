@@ -1,0 +1,37 @@
+{
+  "projectName": "tempalte-react",
+  "projectOwner": "EslavaDev",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "EslavaDev",
+      "name": "EslavaDev",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/31320429?v=4",
+      "profile": "https://github.com/EslavaDev",
+      "contributions": [
+        "doc",
+        "code",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "steven2015",
+      "name": "Steven2015",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/11539650?v=4",
+      "profile": "https://github.com/steven2015",
+      "contributions": [
+        "code",
+        "bug",
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}

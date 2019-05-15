@@ -7,9 +7,11 @@ export const styles = (theme: any) => ({
     },
   },
   drawerPaper: {
+    top: '63px !important',
     width: 240,
     backgroundColor: 'blue',
     color: 'grey',
+    transition: 'transform 700ms',
   },
   separator: {
     backgroundColor: 'red',
@@ -25,7 +27,7 @@ export const styles = (theme: any) => ({
   // Menu Items
   menuItem: {
     textDecoration: 'none',
-    color: 'white',
+    color: 'red',
     backgroundColor: 'blue',
   },
   activeOption: {

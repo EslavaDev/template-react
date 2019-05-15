@@ -13,6 +13,7 @@ import AppRouter from '../../routes';
 import { styles } from './styles';
 import { Menu } from '../menu';
 import { ToggleDrawer } from '../../store/sidenav/actions';
+import { url } from 'inspector';
 
 class Layout extends Component<any, any> {
   constructor(props: any) {
@@ -76,14 +77,22 @@ class Layout extends Component<any, any> {
                   <Toolbar
                     className={open ? classes.toolbar : classes.toolbarFake2}
                   >
-                    <IconButton
-                      color="inherit"
-                      aria-label="Open drawer"
-                      onClick={() => dispatch(ToggleDrawer())}
-                      className={classes.menuButton}
-                    >
-                      <span className={`ic-bars ${classes.menuIcon}`} />
-                    </IconButton>
+                    <div className={`${classes.menuIconFather}`}>
+                      <IconButton
+                        color="inherit"
+                        aria-label="Open drawer"
+                        onClick={() => dispatch(ToggleDrawer())}
+                        className={classes.menuButton}
+                      >
+                        <span className={`${classes.menuIcon}`}>X</span>
+                      </IconButton>
+                      <img
+                        style={{ objectFit: 'cover' }}
+                        src={
+                          'https://images.rappi.com/web/logo-rappi-new.svg?e=webp'
+                        }
+                      />
+                    </div>
                     <Link to="/home">
                       <img className={classes.avatar} src={avatar} />
                     </Link>
